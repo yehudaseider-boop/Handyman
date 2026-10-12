@@ -52,3 +52,20 @@ A Codex commit (`714b3b9`, 12/10/2026) put a web dashboard prototype on `main`: 
 Decision: the commit is kept untouched on the `gpt-workspace` branch and reverted on `main`. The brief and project docs go onto `main`, so every agent works from them.
 
 Worth reusing later, by the gateway builder: the webhook HMAC signature check, deduplication by provider message ID, and the 24-hour window handling (`server/app.ts` on `gpt-workspace`).
+
+## D-004 Customers message the tradesman's own number, through Kapso. Decided by Yehuda, 12/10/2026 (Q-01).
+- Each pilot tradesman's number moves to the free **WhatsApp Business** app if it is not there already, and is connected to Kapso. He keeps chatting in his app as normal.
+- First, ask Kapso whether each tradesman may have his own free account. If not, Kapso Pro (USD 25 a month for 3 numbers) comes back to the owners as a spending decision. Nothing is paid without that approval.
+- Consequence: the tradesman cannot send admin commands to his own number. See D-008.
+
+## D-005 Card on the Meta account with a low spending cap. Decided by Yehuda, 12/10/2026 (Q-02).
+Templates sent outside the 24-hour window are needed for invoices and enquiry alerts. The owners add the card themselves. The cap amount is still to be agreed (Q-13). The cost per job is tracked from day one.
+
+## D-006 The call-out fee is deducted from the final invoice if the job goes ahead. Decided by Yehuda, 12/10/2026 (Q-03).
+If no job follows, the call-out fee stands on its own. The invoice shows it as a separate "Less: call-out fee paid" line.
+
+## D-007 Encrypted nightly backups go to a private Google Drive folder owned by the business. Decided by Yehuda, 12/10/2026 (Q-09).
+Backups are encrypted before upload. The key is kept out of Drive and out of the code. The restore is tested before launch.
+
+## D-008 Admin chat runs on a separate product number. Proposed by Foreman, 12/10/2026.
+Because customers message the tradesman's own number (D-004), his admin commands and alerts need a second number: one **admin number** run by the product and shared by all tradesmen, connected directly to Meta's Cloud API. Admin replies count as service messages, which are free up to 1 000 a month. He saves it in his contacts, for example as "[Business name] Office". He is identified by the number he messages from plus his PIN. This means each tradesman needs a second WhatsApp number of his own to message from (most phones take two SIMs), or a family member's phone. That is checked in Q-05 and Q-10.
