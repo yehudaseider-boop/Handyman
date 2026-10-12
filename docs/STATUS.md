@@ -1,6 +1,6 @@
 # Status
 
-Updated: 11/10/2026
+Updated: 12/10/2026
 
 ## Built
 - Nothing yet. No code until the owners approve the week-1 summary.
@@ -16,3 +16,6 @@ Updated: 11/10/2026
 ## Blocked
 - Q-07: user cases spreadsheet missing.
 - Q-08: provider websites blocked from the build environment.
+
+## Notes
+- 12/10/2026: Codex prototype moved to the `gpt-workspace` branch (D-003). `main` now carries the brief and docs.

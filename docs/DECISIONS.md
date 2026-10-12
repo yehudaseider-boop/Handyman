@@ -44,3 +44,11 @@ That gives 2 moving parts (Supabase and the WhatsApp provider), plus GitHub.
 - Either way, development starts on Meta's free test number or Kapso's sandbox, through the same adapter.
 
 Findings and sources: `docs/PROVIDERS.md`.
+
+## D-003 Codex web-dashboard prototype moved off main. Decided by Yehuda, 12/10/2026.
+
+A Codex commit (`714b3b9`, 12/10/2026) put a web dashboard prototype on `main`: a receptionist inbox, scheduling, and OpenAI drafts, with an Express and SQLite backend. Its 127 tests passed when Foreman ran them. It does not match the brief: it uses web pages instead of WhatsApp only, it has none of the money features (quotes, POP, invoices, VAT, cash, receipts), it has no POPIA consent or deletion, it has no tradesman number plus PIN, it does not handle media, and it uses paid OpenAI.
+
+Decision: the commit is kept untouched on the `gpt-workspace` branch and reverted on `main`. The brief and project docs go onto `main`, so every agent works from them.
+
+Worth reusing later, by the gateway builder: the webhook HMAC signature check, deduplication by provider message ID, and the 24-hour window handling (`server/app.ts` on `gpt-workspace`).
