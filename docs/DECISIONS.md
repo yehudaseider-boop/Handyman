@@ -52,3 +52,7 @@ A Codex commit (`714b3b9`, 12/10/2026) put a web dashboard prototype on `main`: 
 Decision: the commit is kept untouched on the `gpt-workspace` branch and reverted on `main`. The brief and project docs go onto `main`, so every agent works from them.
 
 Worth reusing later, by the gateway builder: the webhook HMAC signature check, deduplication by provider message ID, and the 24-hour window handling (`server/app.ts` on `gpt-workspace`).
+
+## D-004 Product name: PLINK. Decided by Yehuda, 03/11/2026.
+
+The product is called PLINK. The name stays in one config value (`BUSINESS_NAME`) and templates keep the `[Business name]` placeholder, so wording does not need to change if the name ever does. The working build in the Bongi.AI repository still says "Bongi" throughout (code, messages, environment variable names); renaming it is a separate job that needs the customer-facing wording re-approved.
